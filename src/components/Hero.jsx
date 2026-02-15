@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useImageSequence } from '../hooks/useImageSequence';
 
 const Hero = () => {
@@ -61,12 +62,12 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap gap-4 justify-center mb-16">
-          <button className="px-8 py-3 bg-black text-white font-medium rounded-lg hover:bg-black/80 transition-all shadow-lg">
+          <Link to="/donate" className="px-8 py-3 bg-black text-white font-medium rounded-lg hover:bg-black/80 transition-all shadow-lg">
             Start Donating
-          </button>
-          <button className="px-8 py-3 bg-transparent border border-white/60 text-white font-medium rounded-lg hover:bg-white/10 transition-all">
+          </Link>
+          <Link to="/explore" className="px-8 py-3 bg-transparent border border-white/60 text-white font-medium rounded-lg hover:bg-white/10 transition-all">
             Explore Nearby NGOs
-          </button>
+          </Link>
         </div>
 
         {/* Scroll Indicator */}

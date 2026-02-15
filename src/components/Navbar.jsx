@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logoImg from "../../assests/img/image.png";
 
 const Navbar = () => {
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
+
   return (
     <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent">
       <div className="container mx-auto px-6 py-5 flex items-center justify-between">
@@ -22,18 +25,15 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="hidden md:flex gap-8 items-center">
-          <a href="#explore" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-            Explore
-          </a>
-          <a href="#ngos" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
-            NGOs
-          </a>
-          <a href="#how-it-works" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
+          <Link to="/explore" className={`text-sm font-medium transition-colors ${isActive('/explore') ? 'text-white' : 'text-white/80 hover:text-white'}`}>
+            Explore NGOs
+          </Link>
+          <a href="/#how-it-works" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
             How it Works
           </a>
-          <a href="#about" className="text-sm font-medium text-white hover:text-white/80 transition-colors">
+          <Link to="/about" className={`text-sm font-medium transition-colors ${isActive('/about') ? 'text-white' : 'text-white/80 hover:text-white'}`}>
             About
-          </a>
+          </Link>
         </div>
 
         {/* Auth Buttons */}
