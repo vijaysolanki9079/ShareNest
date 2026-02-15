@@ -1,4 +1,5 @@
 import React from "react";
+import logoImg from '../../assests/img/image.png';
 import { HeartHandshake, Twitter, Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
@@ -29,11 +30,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-7 h-7 bg-emerald-500 rounded-md flex items-center justify-center">
-                <HeartHandshake className="w-4 h-4 text-white" />
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center overflow-hidden border border-white/10">
+                <img src={logoImg} alt="ShareNest" className="w-full h-full object-cover" />
               </div>
-              <span className="text-lg font-bold text-gray-900">ShareNest</span>
+              <span className="text-2xl font-bold tracking-tight">ShareNest</span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
               Empowering communities to share resources and support ethical

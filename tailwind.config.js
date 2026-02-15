@@ -16,6 +16,11 @@ export default {
           800: '#065f46',
           900: '#064e3b',
         },
+        slate: {
+          500: '#6b7280',
+          600: '#4b5563',
+          700: '#374151',
+        },
       },
       fontFamily: {
         sans: ['Shantell Sans', 'system-ui', '-apple-system', 'sans-serif'],

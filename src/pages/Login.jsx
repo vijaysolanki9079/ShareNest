@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowLeft, Heart, Chrome } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import bannerImg from '../../assests/img/banner.png';
+import logoImg from '../../assests/img/image.png';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -45,12 +46,12 @@ const Login = () => {
             </Link>
 
             <div className="relative z-10 w-full max-w-[440px] px-6">
-                <div className="bg-white rounded-3xl p-10 shadow-2xl w-full">
+                <div className="bg-white rounded-3xl p-10 shadow-2xl w-full animate-fade-in">
                     {/* Header */}
-                    <div className="text-center mb-8">
-                        <div className="inline-flex items-center gap-2 font-extrabold text-2xl text-gray-900 mb-6">
-                            <div className="w-7 h-7 bg-emerald-600 rounded-md flex items-center justify-center">
-                                <Heart className="w-4 h-4 text-white fill-white" />
+                    <div className="text-center mb-8 animate-slide-up">
+                        <div className="inline-flex items-center gap-3 font-extrabold text-2xl text-gray-900 mb-6">
+                            <div className="w-10 h-10 bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 flex items-center justify-center">
+                                <img src={logoImg} alt="ShareNest" className="w-full h-full object-cover" />
                             </div>
                             ShareNest
                         </div>
@@ -59,7 +60,7 @@ const Login = () => {
                     </div>
 
                     {/* Form */}
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
                         <div className="mb-5">
                             <label className="block text-sm font-medium text-gray-900 mb-2">Email address</label>
                             <input
@@ -96,20 +97,23 @@ const Login = () => {
                     </form>
 
                     {/* Divider */}
-                    <div className="flex items-center my-6 text-gray-400 text-xs font-medium">
+                    <div className="flex items-center my-6 text-gray-400 text-xs font-medium animate-slide-up" style={{ animationDelay: '0.2s' }}>
                         <div className="flex-1 h-px bg-gray-200"></div>
                         <span className="px-3">OR CONTINUE WITH</span>
                         <div className="flex-1 h-px bg-gray-200"></div>
                     </div>
 
                     {/* Social Login */}
-                    <button className="w-full h-11 bg-white border border-gray-200 text-gray-900 font-semibold text-sm rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-3">
+                    <button
+                        className="w-full h-11 bg-white border border-gray-200 text-gray-900 font-semibold text-sm rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-3 animate-slide-up"
+                        style={{ animationDelay: '0.2s' }}
+                    >
                         <Chrome className="w-5 h-5 text-gray-900" />
                         Sign in with Google
                     </button>
 
                     {/* Footer */}
-                    <p className="text-center mt-6 text-sm text-gray-500">
+                    <p className="text-center mt-6 text-sm text-gray-500 animate-slide-up" style={{ animationDelay: '0.3s' }}>
                         Don't have an account?{' '}
                         <Link to="/signup" className="font-semibold text-gray-900 hover:text-emerald-600 transition-colors">
                             Sign up
