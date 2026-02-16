@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Heart, Chrome } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowLeft, Chrome } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import bannerImg from '../../assests/img/banner.png';
 import logoImg from '../../assests/img/image.png';
@@ -15,7 +16,12 @@ const Login = () => {
     };
 
     return (
-        <div className="relative min-h-screen flex items-center justify-center font-sans overflow-hidden bg-gray-900">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="relative min-h-screen flex items-center justify-center font-sans overflow-hidden bg-gray-900"
+        >
             {/* Background Image from Assets */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 z-0 blur-sm scale-110"
@@ -27,10 +33,9 @@ const Login = () => {
             <div
                 className="absolute inset-0 z-0 opacity-20 pointer-events-none"
                 style={{
-                    backgroundImage: `
-            linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
-            linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)
-          `,
+                    backgroundImage:
+                        'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),' +
+                        'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)',
                     backgroundSize: '60px 60px',
                     backgroundPosition: '0 0, 30px 30px'
                 }}
@@ -121,7 +126,7 @@ const Login = () => {
                     </p>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

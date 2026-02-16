@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 // import HeroWithAnimation from '../components/HeroWithAnimation'; // Use this for advanced animation setup
@@ -12,7 +13,13 @@ import Footer from '../components/Footer';
 
 const Home = () => {
     return (
-        <div className="min-h-screen bg-white">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="min-h-screen font-sans"
+        >
             <Navbar />
             <Hero />
             {/* Or use: <HeroWithAnimation /> */}
@@ -51,7 +58,7 @@ const Home = () => {
 
             <CTA />
             <Footer />
-        </div>
+        </motion.div>
     );
 };
 

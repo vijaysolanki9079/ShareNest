@@ -9,7 +9,7 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-16 bg-white border-y border-gray-100 overflow-hidden">
+    <section className="py-8 bg-white border-y border-gray-100 overflow-hidden">
       {/* Full Width Scrolling Container */}
       <div className="flex w-max animate-scroll hover:pause">
         {/* First set of items */}

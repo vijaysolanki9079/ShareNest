@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import {
     Search, MapPin, LayoutGrid, Utensils, Home, BookOpen,
-    PawPrint, HeartPulse, TreePine, BadgeCheck, Star, Filter
+    PawPrint, HeartPulse, TreePine, BadgeCheck, Star, Users
 } from 'lucide-react';
 
 const Explore = () => {
@@ -102,41 +104,64 @@ const Explore = () => {
     });
 
     return (
-        <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="min-h-screen bg-gray-50 font-sans text-gray-900"
+        >
             <Navbar />
 
             {/* Search Hero */}
-            <section className="bg-gray-600 pt-32 pb-24 px-6 text-center text-white relative">
+            <section className="bg-emerald-900 pt-32 pb-24 px-6 text-center text-white relative">
                 <div className="container mx-auto max-w-4xl">
-                    <h1 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight">
-                        Find Organizations Near You
-                    </h1>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+                            Find Organizations Near You
+                        </h1>
+                        <p className="text-emerald-100/80 mb-8 max-w-2xl mx-auto">
+                            Connect with verified NGOs and support causes that matter to you.
+                        </p>
 
-                    <div className="bg-white p-2 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-2 max-w-3xl mx-auto">
-                        <div className="flex-1 flex items-center px-4 border-b md:border-b-0 md:border-r border-gray-100 h-12 md:h-auto">
-                            <Search className="text-gray-400 w-5 h-5 mr-3" />
-                            <input
-                                type="text"
-                                placeholder="Search by name or keyword..."
-                                className="w-full text-gray-900 placeholder-gray-400 outline-none text-base"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                            />
+                        <div className="bg-white p-2 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-2 max-w-3xl mx-auto mb-10">
+                            <div className="flex-1 flex items-center px-4 border-b md:border-b-0 md:border-r border-gray-100 h-12 md:h-auto">
+                                <Search className="text-gray-400 w-5 h-5 mr-3" />
+                                <input
+                                    type="text"
+                                    placeholder="Search by name or keyword..."
+                                    className="w-full text-gray-900 placeholder-gray-400 outline-none text-base"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
+                            </div>
+                            <div className="flex-[0.6] flex items-center px-4 h-12 md:h-auto">
+                                <MapPin className="text-gray-400 w-5 h-5 mr-3" />
+                                <input
+                                    type="text"
+                                    placeholder="Location (e.g. Delhi)"
+                                    className="w-full text-gray-900 placeholder-gray-400 outline-none text-base"
+                                    value={locationQuery}
+                                    onChange={(e) => setLocationQuery(e.target.value)}
+                                />
+                            </div>
+                            <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-xl transition-colors h-12 md:h-auto w-full md:w-auto mt-2 md:mt-0">
+                                Search
+                            </button>
                         </div>
-                        <div className="flex-[0.6] flex items-center px-4 h-12 md:h-auto">
-                            <MapPin className="text-gray-400 w-5 h-5 mr-3" />
-                            <input
-                                type="text"
-                                placeholder="Location (e.g. Delhi)"
-                                className="w-full text-gray-900 placeholder-gray-400 outline-none text-base"
-                                value={locationQuery}
-                                onChange={(e) => setLocationQuery(e.target.value)}
-                            />
+
+                        <div className="flex items-center justify-center gap-4">
+                            <span className="text-sm font-medium text-emerald-200/60 uppercase tracking-widest">Are you an NGO?</span>
+                            <Link to="/register-ngo" className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-full border border-white/20 transition-all font-medium backdrop-blur-sm group">
+                                <Users size={16} className="text-emerald-400" />
+                                Register as NGO
+                            </Link>
                         </div>
-                        <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-xl transition-colors h-12 md:h-auto w-full md:w-auto mt-2 md:mt-0">
-                            Search
-                        </button>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -251,7 +276,7 @@ const Explore = () => {
             </main>
 
             <Footer />
-        </div>
+        </motion.div>
     );
 };
 

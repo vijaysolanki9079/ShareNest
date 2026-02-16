@@ -61,12 +61,21 @@ export const useImageSequence = ({
                     );
                 }
 
-                // Advance frame
-                if (frameIndex < frameCount - 1 || loop) {
-                    frameIndexRef.current = (frameIndex + 1) % frameCount;
+                // Advance frame or stop if we've reached the end and looping is disabled
+                if (frameIndex < frameCount - 1) {
+                    frameIndexRef.current = frameIndex + 1;
+                } else if (loop) {
+                    frameIndexRef.current = 0;
                 }
+
                 lastTime = time;
             }
+
+            // If not looping and we're on the last frame, stop scheduling new frames
+            if (!loop && frameIndexRef.current === frameCount - 1) {
+                return;
+            }
+
             requestRef.current = requestAnimationFrame(render);
         };
 
@@ -87,7 +96,7 @@ export const useImageSequence = ({
             cancelAnimationFrame(requestRef.current);
             window.removeEventListener('resize', handleResize);
         };
-    }, [frameCount, imagePrefix, imageSuffix, fps, loop]);
+    }, [frameCount, imagePrefix, imageSuffix, fps, loop, startIndex]);
 
     return canvasRef;
 };

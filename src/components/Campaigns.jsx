@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Campaigns = () => {
   const campaigns = [
@@ -56,9 +57,12 @@ const Campaigns = () => {
               Support verified organizations running specific drives right now. Your small contribution creates a massive impact.
             </p>
           </div>
-          <button className="mt-6 md:mt-0 px-8 py-3 bg-white border-2 border-gray-100 text-gray-900 font-semibold rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-all shadow-sm">
+          <Link
+            to="/explore"
+            className="mt-6 md:mt-0 inline-flex items-center justify-center px-8 py-3 bg-white border-2 border-gray-100 text-gray-900 font-semibold rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-all shadow-sm"
+          >
             View All Campaigns
-          </button>
+          </Link>
         </div>
 
         {/* Campaigns Grid */}

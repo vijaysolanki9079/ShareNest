@@ -1,11 +1,18 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Leaf, ShieldCheck, Users, HeartHandshake } from 'lucide-react';
 
 const About = () => {
     return (
-        <div className="min-h-screen bg-white font-sans text-gray-900">
+        <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.5 }}
+            className="min-h-screen bg-gray-50 flex flex-col font-sans"
+        >
 
             {/* Hero Section with Background */}
             <div className="relative bg-gray-900">
@@ -238,11 +245,10 @@ const About = () => {
                             </button>
                         </div>
                     </section>
-
-                    <Footer />
                 </div>
             </div>
-        </div>
+            <Footer />
+        </motion.div>
     );
 };
 
